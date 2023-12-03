@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-
 const API_ENDPOINT =
   "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
-
 
 function App() {
   const [data, setData] = useState([]);
@@ -59,16 +57,12 @@ function App() {
     const selectedRowIds = selectedRows.map((row) => row.id);
     console.log(displayedRowIds);
     if (displayedRowIds.length === selectedRowIds.length) {
-
       setSelectedRows(
         selectedRows.filter((row) => displayedRowIds.includes(row.id))
       );
-
-    }
-    else {
+    } else {
       setSelectedRows([...selectedRows, ...displayedRowIds]);
     }
-
   };
 
   const handleInputChange = (id, field, value) => {
@@ -85,7 +79,16 @@ function App() {
   };
 
   const handleEdit = (id) => {
-    const index = data.findIndex((row) => row.id === id);
+    let index = 0;
+    if(searchTerm !== ""){
+      index = filteredData.findIndex((row) => row.id === id);
+
+      const pageNumber = Math.ceil((index + 1) / itemsPerPage);
+      paginate(pageNumber);
+      
+    } else {
+      index = data.findIndex((row) => row.id === id);
+    }
     const updatedData = [...data];
     updatedData[index] = { ...updatedData[index], editable: true };
     setData(updatedData);
@@ -111,7 +114,9 @@ function App() {
   };
 
   const handleDeleteSelected = () => {
-    const willDelete = window.confirm(`Are you sure you want to delete selected rows?`);
+    const willDelete = window.confirm(
+      `Are you sure you want to delete selected rows?`
+    );
     if (!willDelete) {
       return;
     }
@@ -142,7 +147,7 @@ function App() {
             placeholder="Search email, name, role"
             value={searchTerm}
             onChange={(e) => {
-              setSearchTerm(e.target.value)
+              setSearchTerm(e.target.value);
               handleSearch();
             }}
             onKeyDown={(e) => {
@@ -306,7 +311,19 @@ function App() {
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleEdit(row.id)}
+                      onClick={() => {
+                        if (row.editable) {
+                          handleSave(row.id);
+                          console.log(row);
+                        } else if(row.id === 1){
+                          alert("You cannot edit this row");
+                        }
+                        else {
+                          handleEdit(row.id);
+                        }
+
+                      }
+                      }
                       className="edit-button"
                     >
                       <svg
@@ -332,7 +349,11 @@ function App() {
                   )}
                   <button
                     onClick={() => {
-                      const isConfirmed = window.confirm(`Are you sure you want to delete row no: ` + row.id + `?`);
+                      const isConfirmed = window.confirm(
+                        `Are you sure you want to delete row no: ` +
+                          row.id +
+                          `?`
+                      );
 
                       if (isConfirmed) {
                         const updatedData = data.filter((r) => r.id !== row.id);

@@ -17,6 +17,7 @@ npm run dev
 1. Admin can view all the users in the system.
 2. Admin can edit the user details.
 3. Admin can delete the user.
+4. Admin can search by mail, username, role or id
 ```
 
 ## Technologies Used

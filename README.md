@@ -27,6 +27,7 @@ npm run dev
 
 
 ## Screenshot
-![screencapture-localhost-5173-2023-12-03-14_07_18](https://github.com/prantikseal/admin-table-ui/assets/83081442/52018a91-960b-4131-a4d2-cb4b142ab8b3)
+![screnshot-admin-ui](https://github.com/prantikseal/admin-table-ui/assets/83081442/eadf6f75-da2f-4f71-b57c-74188ae8492f)
+
 
 

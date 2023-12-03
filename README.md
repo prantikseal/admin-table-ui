@@ -1,9 +1,29 @@
-# React + Vite
+# Admin-table-Ui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a react based UI for the admin table.
 
-Currently, two official plugins are available:
+## Project setup
+```
+npm install
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# admin-table-ui
+### Compiles and hot-reloads for development
+```
+npm run dev
+```
+
+## Features
+```
+1. Admin can view all the users in the system.
+2. Admin can edit the user details.
+3. Admin can delete the user.
+```
+
+## Technologies Used
+```
+1. React
+2. JSX, HTML, CSS3
+```
+
+## Screenshots
+

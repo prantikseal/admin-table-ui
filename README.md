@@ -25,5 +25,8 @@ npm run dev
 2. JSX, HTML, CSS3
 ```
 
-## Screenshots
+
+## Screenshot
+![screencapture-localhost-5173-2023-12-03-14_07_18](https://github.com/prantikseal/admin-table-ui/assets/83081442/52018a91-960b-4131-a4d2-cb4b142ab8b3)
+
 
